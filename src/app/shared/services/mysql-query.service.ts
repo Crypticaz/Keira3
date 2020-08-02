@@ -355,11 +355,11 @@ export class MysqlQueryService extends QueryService {
   }
 
   getCreatureNameById(id: string|number): Promise<string> {
-    return this.queryValueToPromiseCached('getCreatureNameById', String(id), `SELECT name AS v FROM creature_template WHERE entry = ${id}`);
+    return this.queryValueToPromiseCached('getCreatureNameById', String(id), `SELECT Name AS v FROM creature_template WHERE Entry = ${id}`);
   }
 
   getCreatureNameByGuid(guid: string|number): Promise<string> {
-    return this.queryValueToPromiseCached('getCreatureNameByGuid', String(guid), `SELECT name AS v FROM creature_template AS ct INNER JOIN creature AS c ON ct.entry = c.id WHERE c.guid = ${guid}`);
+    return this.queryValueToPromiseCached('getCreatureNameByGuid', String(guid), `SELECT Name AS v FROM creature_template AS ct INNER JOIN creature AS c ON ct.Entry = c.id WHERE c.guid = ${guid}`);
   }
 
   getGameObjectNameById(id: string|number): Promise<string> {

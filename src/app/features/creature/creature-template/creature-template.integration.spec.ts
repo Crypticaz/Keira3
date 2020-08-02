@@ -22,22 +22,22 @@ describe('CreatureTemplate integration tests', () => {
   let page: CreatureTemplatePage;
 
   const id = 1234;
-  const expectedFullCreateQuery = 'DELETE FROM `creature_template` WHERE (`entry` = 1234);\n' +
-    'INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`,' +
-    ' `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`,' +
-    ' `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`,' +
-    ' `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, `DamageModifier`,' +
-    ' `BaseAttackTime`, `RangeAttackTime`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`,' +
-    ' `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `minrangedmg`,' +
-    ' `maxrangedmg`, `rangedattackpower`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`,' +
-    ' `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`,' +
-    ' `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `PetSpellDataId`,' +
-    ' `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`,' +
-    ' `HealthModifier`, `ManaModifier`, `ArmorModifier`, `RacialLeader`, `movementId`, `RegenHealth`,' +
-    ' `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES\n' +
-    '(1234, 0, 0, 0, 0, 0, 0, 0, 0, 0, \'\', \'\', \'\', 0, 1, 1, 0, 0, 0, 1, 1.14286, 1, 0, 0, 0,' +
-    ' 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,' +
-    ' 0, 0, 0, 0, 0, 0, \'\', 0, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, \'\', 0);';
+  const expectedFullCreateQuery = 'DELETE FROM `creature_template` WHERE (`Entry`= 123456);\n' +
+    'INSERT INTO `creature_template` (`Entry`, `Name`, `SubName`, `IconName`, `MinLevel`, `MaxLevel`,' +
+    ' `HeroicEntry`, `ModelId1`, `ModelId2`, `ModelId3`, `ModelId4`, `Faction`, `Scale`, `Family`, `CreatureType`,' +
+    ' `InhabitType`, `RegenerateStats`, `RacialLeader`, `NpcFlags`, `UnitFlags`, `DynamicFlags`, `ExtraFlags`,' +
+    ' `CreatureTypeFlags`, `SpeedWalk`, `SpeedRun`, `Detection`, `CallForHelp`, `Pursuit`, `Leash`, `Timeout`,' +
+    ' `UnitClass`, `Rank`, `Expansion`, `HealthMultiplier`, `PowerMultiplier`, `DamageMultiplier`, `DamageVariance`,' +
+    ' `ArmorMultiplier`, `ExperienceMultiplier`, `MinLevelHealth`, `MaxLevelHealth`, `MinLevelMana`, `MaxLevelMana`,' +
+    ' `MinMeleeDmg`, `MaxMeleeDmg`, `MinRangedDmg`, `MaxRangedDmg`, `Armor`, `MeleeAttackPower`, `RangedAttackPower`,' +
+    ' `MeleeBaseAttackTime`, `RangedBaseAttackTime`, `DamageSchool`, `MinLootGold`, `MaxLootGold`, `LootId`, `PickpocketLootId`,' +
+    ' `SkinningLootId`, `KillCredit1`, `KillCredit2`, `MechanicImmuneMask`, `SchoolImmuneMask`, `ResistanceHoly`, `ResistanceFire`,' +
+    ' `ResistanceNature`, `ResistanceFrost`, `ResistanceShadow`, `ResistanceArcane`, `PetSpellDataId`, `MovementType`, `TrainerType`,' +
+    ' `TrainerSpell`, `TrainerClass`, `TrainerRace`, `TrainerTemplateId`, `VendorTemplateId`, `EquipmentTemplateId`, `GossipMenuId`,' +
+    ' `visibilityDistanceType`, `AIName`, `ScriptName`) VALUES\n'
+    ' (123456, \'\', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 20,' +
+    ' 0, 0, 0, 0, 0, 0, -1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2000, 2000,' +
+    ' 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \'\', \'\');';
 
   const originalEntity = new CreatureTemplate();
   originalEntity.entry = id;
@@ -85,22 +85,22 @@ describe('CreatureTemplate integration tests', () => {
     });
 
     it('changing a property and executing the query should correctly work', () => {
-      const expectedQuery = 'DELETE FROM `creature_template` WHERE (`entry` = 1234);\n' +
-      'INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`,' +
-      ' `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`,' +
-      ' `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`,' +
-      ' `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, `DamageModifier`,' +
-      ' `BaseAttackTime`, `RangeAttackTime`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`,' +
-      ' `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `minrangedmg`,' +
-      ' `maxrangedmg`, `rangedattackpower`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`,' +
-      ' `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`,' +
-      ' `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `PetSpellDataId`,' +
-      ' `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`,' +
-      ' `HealthModifier`, `ManaModifier`, `ArmorModifier`, `RacialLeader`, `movementId`, `RegenHealth`,' +
-      ' `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES\n' +
-      '(1234, 0, 0, 0, 0, 0, 0, 0, 0, 0, \'Shin\', \'\', \'\', 0, 1, 1, 0, 0, 0, 1, 1.14286, 1, 0, 0, 0,' +
-      ' 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,' +
-      ' 0, 0, 0, 0, 0, 0, \'\', 0, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, \'\', 0);';
+      const expectedQuery = 'DELETE FROM `creature_template` WHERE (`entry` = 123456);\n' +
+      'INSERT INTO `creature_template` (`Entry`, `Name`, `SubName`, `IconName`, `MinLevel`, `MaxLevel`,' +
+    ' `HeroicEntry`, `ModelId1`, `ModelId2`, `ModelId3`, `ModelId4`, `Faction`, `Scale`, `Family`, `CreatureType`,' +
+    ' `InhabitType`, `RegenerateStats`, `RacialLeader`, `NpcFlags`, `UnitFlags`, `DynamicFlags`, `ExtraFlags`,' +
+    ' `CreatureTypeFlags`, `SpeedWalk`, `SpeedRun`, `Detection`, `CallForHelp`, `Pursuit`, `Leash`, `Timeout`,' +
+    ' `UnitClass`, `Rank`, `Expansion`, `HealthMultiplier`, `PowerMultiplier`, `DamageMultiplier`, `DamageVariance`,' +
+    ' `ArmorMultiplier`, `ExperienceMultiplier`, `MinLevelHealth`, `MaxLevelHealth`, `MinLevelMana`, `MaxLevelMana`,' +
+    ' `MinMeleeDmg`, `MaxMeleeDmg`, `MinRangedDmg`, `MaxRangedDmg`, `Armor`, `MeleeAttackPower`, `RangedAttackPower`,' +
+    ' `MeleeBaseAttackTime`, `RangedBaseAttackTime`, `DamageSchool`, `MinLootGold`, `MaxLootGold`, `LootId`, `PickpocketLootId`,' +
+    ' `SkinningLootId`, `KillCredit1`, `KillCredit2`, `MechanicImmuneMask`, `SchoolImmuneMask`, `ResistanceHoly`, `ResistanceFire`,' +
+    ' `ResistanceNature`, `ResistanceFrost`, `ResistanceShadow`, `ResistanceArcane`, `PetSpellDataId`, `MovementType`, `TrainerType`,' +
+    ' `TrainerSpell`, `TrainerClass`, `TrainerRace`, `TrainerTemplateId`, `VendorTemplateId`, `EquipmentTemplateId`, `GossipMenuId`,' +
+    ' `visibilityDistanceType`, `AIName`, `ScriptName`) VALUES\n'
+    ' (123456, \'\', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 20,' +
+    ' 0, 0, 0, 0, 0, 0, -1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2000, 2000,' +
+    ' 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \'\', \'\');';
       querySpy.calls.reset();
 
       page.setInputValueById('name', 'Shin');
@@ -145,7 +145,7 @@ describe('CreatureTemplate integration tests', () => {
         '`spell6` = 57, `spell7` = 58, `spell8` = 59, `PetSpellDataId` = 60, `VehicleId` = 61, `mingold` = 62, `maxgold` = 63, ' +
         '`AIName` = \'64\', `MovementType` = 65, `InhabitType` = 66, `HoverHeight` = 67, `HealthModifier` = 68, `ManaModifier` = 69, ' +
         '`ArmorModifier` = 70, `RacialLeader` = 71, `movementId` = 72, `RegenHealth` = 73, `mechanic_immune_mask` = 74, ' +
-        '`flags_extra` = 75, `ScriptName` = \'76\' WHERE (`entry` = 1234);';
+        '`flags_extra` = 75, `ScriptName` = \'76\' WHERE (`entry` = 123456);';
       querySpy.calls.reset();
 
       page.changeAllFields(originalEntity, ['VerifiedBuild']);
@@ -159,22 +159,22 @@ describe('CreatureTemplate integration tests', () => {
     it('changing values should correctly update the queries', () => {
       // Note: full query check has been shortened here because the table is too big, don't do this in other tests unless necessary
 
-      page.setInputValueById('name', 'Shin');
+      page.setInputValueById('Name', 'Shin');
       page.expectDiffQueryToContain(
-        'UPDATE `creature_template` SET `name` = \'Shin\' WHERE (`entry` = 1234);'
+        'UPDATE `creature_template` SET `Name` = \'Shin\' WHERE (`Entry` = 123456);'
       );
       page.expectFullQueryToContain('Shin');
 
       page.setInputValueById('subname', 'AC Developer');
       page.expectDiffQueryToContain(
-        'UPDATE `creature_template` SET `name` = \'Shin\', `subname` = \'AC Developer\' WHERE (`entry` = 1234);'
+        'UPDATE `creature_template` SET `Name` = \'Shin\', `SubName` = \'AC Developer\' WHERE (`Entry` = 123456);'
       );
       page.expectFullQueryToContain('Shin');
       page.expectFullQueryToContain('AC Developer');
     });
 
     it('changing a value via FlagsSelector should correctly work', async () => {
-      const field = 'unit_flags';
+      const field = 'UnitFlags';
       page.clickElement(page.getSelectorBtn(field));
       page.expectModalDisplayed();
       await page.whenReady();
@@ -190,7 +190,7 @@ describe('CreatureTemplate integration tests', () => {
 
       expect(page.getInputById(field).value).toEqual('4100');
       page.expectDiffQueryToContain(
-        'UPDATE `creature_template` SET `unit_flags` = 4100 WHERE (`entry` = 1234);'
+        'UPDATE `creature_template` SET `UnitFlags` = 4100 WHERE (`Entry` = 123456);'
       );
 
       // Note: full query check has been shortened here because the table is too big, don't do this in other tests unless necessary

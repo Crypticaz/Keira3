@@ -1,7 +1,7 @@
 import { Option } from '../../types/general';
 
-export const DAMAGE_TYPE: Option[] = [
-  { value: 0,	name: 'NORMAL' },
+export const DAMAGE_SCHOOL: Option[] = [
+  { value: 0,	name: 'NORMAL/PHYSICAL' },
   { value: 1,	name: 'HOLY' },
   { value: 2,	name: 'FIRE' },
   { value: 3,	name: 'NATURE' },

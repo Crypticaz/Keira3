@@ -751,7 +751,7 @@
               <label class="control-label" for="dmg_type{{ i }}">type{{ i }}</label>
               <keira-single-value-selector-btn
                 [control]="editorService.form.controls['dmg_type' + i]"
-                [config]="{ options: DAMAGE_TYPE, name: 'dmg_type' + i }"
+                [config]="{ options: DAMAGE_SCHOOL, name: 'dmg_type' + i }"
                 [modalClass]="'modal-md'"
               ></keira-single-value-selector-btn>
               <input [formControlName]="'dmg_type' + i" id="dmg_type{{ i }}" type="number" class="form-control form-control-sm">

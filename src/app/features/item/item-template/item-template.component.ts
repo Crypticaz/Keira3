@@ -8,7 +8,7 @@ import { ITEM_FLAGS } from '@keira-constants/flags/item-flags';
 import { ITEM_FLAGS_CUSTOM } from '@keira-constants/flags/item-flags-custom';
 import { ITEM_FLAGS_EXTRA } from '@keira-constants/flags/item-flags-extra';
 import { SOCKET_COLOR } from '@keira-constants/flags/socket-color';
-import { DAMAGE_TYPE } from '@keira-constants/options/damage-type';
+import { DAMAGE_SCHOOL } from '@keira-constants/options/damage-type';
 import { FACTION_RANK } from '@keira-constants/options/faction-rank';
 import { FOOD_TYPE } from '@keira-constants/options/foot-type';
 import { INVENTORY_TYPE } from '@keira-constants/options/inventory-type';
@@ -50,7 +50,7 @@ export class ItemTemplateComponent extends SingleRowEditorComponent<ItemTemplate
   public readonly TOTEM_CATEGORY = TOTEM_CATEGORY;
   public readonly FOOD_TYPE = FOOD_TYPE;
   public readonly ITEM_FLAGS_CUSTOM = ITEM_FLAGS_CUSTOM;
-  public readonly DAMAGE_TYPE = DAMAGE_TYPE;
+  public readonly DAMAGE_SCHOOL = DAMAGE_SCHOOL;
   public readonly STAT_TYPE = STAT_TYPE;
   public readonly PVP_RANK = PVP_RANK;
 

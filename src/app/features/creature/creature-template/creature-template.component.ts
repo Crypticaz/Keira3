@@ -4,7 +4,6 @@ import { CreatureTemplateService } from './creature-template.service';
 import { CreatureTemplate } from '@keira-types/creature-template.type';
 import { SingleRowEditorComponent } from '@keira-abstract/components/editors/single-row-editor.component';
 import { CreatureHandlerService } from '../creature-handler.service';
-import { UNIT_FLAGS_2 } from '@keira-constants/flags/unit-flags2';
 import { INHABIT_TYPE } from '@keira-constants/flags/inhabit-type';
 import { TRAINER_TYPE } from '@keira-constants/options/trainer-type';
 import { NPC_FLAGS } from '@keira-constants/flags/npc-flags';
@@ -14,15 +13,13 @@ import { CREATURE_TYPE_FLAGS } from '@keira-constants/flags/creature-type-flags'
 import { RANK } from '@keira-constants/options/rank';
 import { UNIT_FLAGS } from '@keira-constants/flags/unit-flags';
 import { DYNAMIC_FLAGS } from '@keira-constants/flags/dynamic-flags';
-import { CREATURE_CLASS } from '@keira-constants/options/creature-class';
-import { CREATURE_RACE } from '@keira-constants/options/creature-race';
 import { MOVEMENT_TYPE } from '@keira-constants/options/movement-type';
-import { FLAGS_EXTRA } from '@keira-constants/flags/flags-extra';
+import { EXTRA_FLAGS } from '@keira-constants/flags/flags-extra';
 import { MECHANIC_IMMUNE_MASK } from '@keira-constants/flags/mechanic-immune-mask';
 import { CREATURE_ICON } from '@keira-constants/options/creature-icon';
 import { EXPANSION } from '@keira-constants/options/expansion';
 import { UNIT_CLASS } from '@keira-constants/options/unit-class';
-import { DAMAGE_TYPE } from '@keira-constants/options/damage-type';
+import { DAMAGE_SCHOOL } from '@keira-constants/options/damage-type';
 import { CREATURE_AI_NAME } from '@keira-constants/options/creature-ai-name';
 
 @Component({
@@ -33,7 +30,6 @@ import { CREATURE_AI_NAME } from '@keira-constants/options/creature-ai-name';
 export class CreatureTemplateComponent extends SingleRowEditorComponent<CreatureTemplate> {
 
   public readonly UNIT_FLAGS = UNIT_FLAGS;
-  public readonly UNIT_FLAGS_2 = UNIT_FLAGS_2;
   public readonly INHABIT_TYPE = INHABIT_TYPE;
   public readonly TRAINER_TYPE = TRAINER_TYPE;
   public readonly NPC_FLAGS = NPC_FLAGS;
@@ -42,15 +38,13 @@ export class CreatureTemplateComponent extends SingleRowEditorComponent<Creature
   public readonly CREATURE_TYPE_FLAGS = CREATURE_TYPE_FLAGS;
   public readonly RANK = RANK;
   public readonly DYNAMIC_FLAGS = DYNAMIC_FLAGS;
-  public readonly CREATURE_CLASS = CREATURE_CLASS;
-  public readonly CREATURE_RACE = CREATURE_RACE;
   public readonly MOVEMENT_TYPE = MOVEMENT_TYPE;
-  public readonly FLAGS_EXTRA = FLAGS_EXTRA;
+  public readonly EXTRA_FLAGS = EXTRA_FLAGS
   public readonly MECHANIC_IMMUNE_MASK = MECHANIC_IMMUNE_MASK;
   public readonly CREATURE_ICON = CREATURE_ICON;
   public readonly EXPANSION = EXPANSION;
   public readonly UNIT_CLASS = UNIT_CLASS;
-  public readonly DAMAGE_TYPE = DAMAGE_TYPE;
+  public readonly DAMAGE_SCHOOL = DAMAGE_SCHOOL;
   public readonly CREATURE_AI_NAME = CREATURE_AI_NAME;
 
   public readonly VEHICLE_ID_TOOLTIP = 'Entry of vehicle if creature is/has a vehicle entry. ' +
